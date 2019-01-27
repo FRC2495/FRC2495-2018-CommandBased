@@ -48,7 +48,7 @@ public class Sonar{
     }
     
     // Just get the voltage.
-    double getVoltage() {
+    public double getVoltage() {
         return channel.getVoltage();
     }
     
@@ -57,7 +57,7 @@ public class Sonar{
      * Returns -1.0 if units are not being used
      * Returns -2.0 if the voltage is below the minimum voltage
      */
-    double getRangeInInches() {
+    public double getRangeInInches() {
         double range;
         
         //if we're not using units, return -1, a range that will most likely never be returned
@@ -84,7 +84,7 @@ public class Sonar{
      * Returns -1.0 if units are not being used
      * Returns -2.0 if the voltage is below the minimum voltage
      */
-    double getRangeInCM() {
+    public double getRangeInCM() {
         double range;
         
         //if we're not using units, return -1, a range that will most likely never be returned
