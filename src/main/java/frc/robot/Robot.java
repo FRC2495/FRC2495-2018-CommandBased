@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
 	// use this constant to switch between competition and practice bot
 	public static final boolean COMPETITION_BOT_CONFIG = true;
 
-  public static OI m_oi;
+  public static OI oi;
 
   Command m_autonomousCommand;
   
@@ -302,7 +302,7 @@ public class Robot extends TimedRobot {
     //(which it very likely will), subsystems are not guaranteed to be
     // constructed yet. Thus, their requires() statements may grab null
     // pointers. Bad news. Don't move it.
-    m_oi = new OI();
+    oi = new OI();
   }
 
   /**
