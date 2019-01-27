@@ -12,6 +12,7 @@
 package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.ControllerBase;
 
 /**
  *
@@ -43,22 +44,26 @@ public class MiniDrivetrainJoystickControl extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.miniDrivetrain.joystickControl(Robot.joyRight, Robot.joyRight, (Robot.control.getHeld(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN1) 
+        || Robot.control.getHeld(ControllerBase.Joysticks.RIGHT_STICK, ControllerBase.JoystickButtons.BTN1)));
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return false; // we run forever (unless interrupted)
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.miniDrivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

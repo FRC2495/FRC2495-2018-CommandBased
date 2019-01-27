@@ -37,6 +37,7 @@ public class GyroReset extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+        Robot.gyro.reset();
     }
 
 }

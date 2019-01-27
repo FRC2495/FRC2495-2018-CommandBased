@@ -38,6 +38,7 @@ public class MiniDrivetrainStop extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+        Robot.miniDrivetrain.stop();
     }
 
 }
