@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.buttons.*;
 //import frc.robot.subsystems.*;
 import frc.robot.Ports;
 import frc.robot.ControllerBase;
+import frc.robot.interfaces.IJack;
 
 
 /**
@@ -125,10 +126,10 @@ public class OI {
         joyRightBtn6.whenPressed(new BothDrivetrainsResetEncoders());
 
         joyRightBtn3 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN3);
-        joyRightBtn3.whenPressed(new JackSetPosition(0));
+        joyRightBtn3.whenPressed(new JackSetPosition(IJack.Position.LARGE_DRIVETRAIN));
 
         joyRightBtn2 = new JoystickButton(joyRight, ControllerBase.JoystickButtons.BTN2);
-        joyRightBtn2.whenPressed(new JackSetPosition(0));
+        joyRightBtn2.whenPressed(new JackSetPosition(IJack.Position.MINI_DRIVETRAIN));
 
 
         joyLeft = new Joystick(Ports.USB.LEFT);

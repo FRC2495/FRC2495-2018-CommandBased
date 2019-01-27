@@ -38,6 +38,7 @@ public class MiniDrivetrainResetEncoders extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+        Robot.miniDrivetrain.resetEncoders();
     }
 
 }

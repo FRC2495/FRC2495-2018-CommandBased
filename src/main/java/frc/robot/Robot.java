@@ -46,8 +46,10 @@ public class Robot extends TimedRobot {
   Command gyroCalibrateAndReset;
   Command drivetrainJoystickControl;
   Command drivetrainStop;
+  Command drivetrainResetEncoders;
   Command miniDrivetrainJoystickControl;
   Command miniDrivetrainStop;
+  Command miniDrivetrainResetEncoders;
   Command jackSetPositionLargeDrivetrain;
   Command jackSetPositionMiniDrivetrain;
   
@@ -317,8 +319,10 @@ public class Robot extends TimedRobot {
      gyroCalibrateAndReset = new GyroCalibrateAndReset();
      drivetrainJoystickControl = new DrivetrainJoystickControl();
      drivetrainStop = new DrivetrainStop();
+     drivetrainResetEncoders = new DrivetrainResetEncoders();
      miniDrivetrainJoystickControl = new MiniDrivetrainJoystickControl();
      miniDrivetrainStop = new MiniDrivetrainStop();
+     miniDrivetrainResetEncoders = new MiniDrivetrainResetEncoders();
      jackSetPositionMiniDrivetrain = new JackSetPosition(IJack.Position.MINI_DRIVETRAIN);
      jackSetPositionLargeDrivetrain = new JackSetPosition(IJack.Position.LARGE_DRIVETRAIN);
   }
@@ -448,7 +452,46 @@ public class Robot extends TimedRobot {
       System.out.println("jack up");
       jackSetPositionLargeDrivetrain.start();
       miniDrivetrainStop.start();
-		} 
+    } 
+    
+   		//Resets encoders (and gyro) "Reset"
+		if (control.getPressedDown(ControllerBase.Joysticks.RIGHT_STICK, ControllerBase.JoystickButtons.BTN6))
+		{
+			System.out.println("Button RIGHT.BTN6 Pushed");
+			
+			drivetrainResetEncoders.start();
+			miniDrivetrainResetEncoders.start();;
+			
+			//gyro.reset(); // resets to zero - we don't want to rirsk loosing time during competition
+		}		
+		
+		//Stops the robot moving if pressed (or any closed loop operation) "Abort"
+		if (control.getPressedDown(ControllerBase.Joysticks.RIGHT_STICK, ControllerBase.JoystickButtons.BTN7))
+		{
+			System.out.println("Button RIGHT.BTN7 Pushed");
+			
+			drivetrainStop.start();
+			miniDrivetrainStop.start();
+		}
+		
+		if (control.getPressedDown(ControllerBase.Joysticks.RIGHT_STICK, ControllerBase.JoystickButtons.BTN8))
+		{
+			System.out.println("Button RIGHT.BTN8 Pushed");
+			
+			System.out.println("Switching forward control to left joystick.");
+			
+			USE_TWO_JOYSTICKS_TO_DRIVE = true;
+		}
+		
+		if (control.getPressedDown(ControllerBase.Joysticks.RIGHT_STICK, ControllerBase.JoystickButtons.BTN9))
+		{
+			System.out.println("Button RIGHT.BTN9 Pushed");
+			
+			System.out.println("Switching forward control to right joystick.");
+			
+			USE_TWO_JOYSTICKS_TO_DRIVE = false;
+		}
+ 
 
     Scheduler.getInstance().run();
 
