@@ -156,7 +156,7 @@ public class OI {
         joyLeftBtn4.whenPressed(new DrivetrainTurnAngleUsingPidController(0));
 
         joyLeftBtn3 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN3);
-        joyLeftBtn3.whenPressed(new CurrentDrivetrainMoveDistance());
+        joyLeftBtn3.whenPressed(new CurrentDrivetrainMoveDistance(50));
 
         joyLeftBtn2 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN2);
         joyLeftBtn2.whenPressed(new MiniDriveTrainMoveUsingCameraPidController());

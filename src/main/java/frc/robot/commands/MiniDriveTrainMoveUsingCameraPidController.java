@@ -38,17 +38,19 @@ public class MiniDriveTrainMoveUsingCameraPidController extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.miniDrivetrain.moveUsingCameraPidController();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        // nothing
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return !Robot.miniDrivetrain.tripleCheckMoveUsingCameraPidController();
     }
 
     // Called once after isFinished returns true
@@ -60,5 +62,6 @@ public class MiniDriveTrainMoveUsingCameraPidController extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }
