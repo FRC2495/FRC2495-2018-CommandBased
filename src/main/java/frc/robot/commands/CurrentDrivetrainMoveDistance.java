@@ -12,7 +12,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.ConditionalCommand;
-//import frc.robot.Robot;
+import frc.robot.Robot;
 
 /**
  *
@@ -30,6 +30,6 @@ public class CurrentDrivetrainMoveDistance extends ConditionalCommand {
 
     @Override
     protected boolean condition(){
-        return false;//TODO: Auto Generated method stub
+        return Robot.largeDriveTrainSelected;
     }
 }

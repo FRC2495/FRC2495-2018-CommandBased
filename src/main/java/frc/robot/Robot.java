@@ -143,7 +143,7 @@ public class Robot extends TimedRobot {
 	Compressor compressor; // the compressor's lifecycle needs to be the same as the robot
 	
 	public static /*I*/Jack jack;
-	boolean largeDriveTrainSelected = false; // by default we assume small drivetrain is down
+	public static boolean largeDriveTrainSelected = false; // by default we assume small drivetrain is down
 	
 	// joysticks and gamepad
 	

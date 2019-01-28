@@ -39,6 +39,7 @@ public class JackSetPosition extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+        Robot.jack.setPosition(m_position);
     }
 
 }

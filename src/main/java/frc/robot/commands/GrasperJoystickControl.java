@@ -43,6 +43,7 @@ public class GrasperJoystickControl extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.grasper.joystickControl(Robot.joyLeft);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -60,5 +61,6 @@ public class GrasperJoystickControl extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }
