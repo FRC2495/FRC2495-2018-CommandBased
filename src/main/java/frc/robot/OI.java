@@ -150,16 +150,16 @@ public class OI {
         joyLeftBtn6.whenPressed(new BothDrivetrainsAndGyroReset());
 
         joyLeftBtn5 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN5);
-        joyLeftBtn5.whenPressed(new DrivetrainTurnAngleUsingPidController(0));
+        joyLeftBtn5.whenPressed(new DrivetrainTurnAngleUsingPidController(90));
 
         joyLeftBtn4 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN4);
-        joyLeftBtn4.whenPressed(new DrivetrainTurnAngleUsingPidController(0));
+        joyLeftBtn4.whenPressed(new DrivetrainTurnAngleUsingPidController(-90));
 
         joyLeftBtn3 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN3);
         joyLeftBtn3.whenPressed(new CurrentDrivetrainMoveDistance(50));
 
         joyLeftBtn2 = new JoystickButton(joyLeft, ControllerBase.JoystickButtons.BTN2);
-        joyLeftBtn2.whenPressed(new MiniDriveTrainMoveUsingCameraPidController());
+        joyLeftBtn2.whenPressed(new MiniDrivetrainMoveUsingCameraPidController());
 
 
         // SmartDashboard Buttons
