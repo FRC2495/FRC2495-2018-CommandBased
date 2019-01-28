@@ -48,6 +48,7 @@ public class Robot extends TimedRobot {
   Command gyroReset;
   
   Command drivetrainJoystickControl;
+  Command drivetrainSingleJoystickControl;
   Command drivetrainMoveDistance;
   Command drivetrainTurnAngleUsingPidControllerPlus90;
   Command drivetrainTurnAngleUsingPidControllerMinus90;
@@ -134,7 +135,7 @@ public class Robot extends TimedRobot {
 	WPI_TalonSRX frontCenter;
 	WPI_TalonSRX rearCenter;
 
-	//boolean elevatorFlagUp = true;
+	public static boolean elevatorFlagUp = true;
 	public static /*I*/Elevator elevatorControl;
 	
 	WPI_TalonSRX elevator;
@@ -144,7 +145,7 @@ public class Robot extends TimedRobot {
 	BaseMotorController grasperLeft;
 	BaseMotorController grasperRight;
 	
-	//boolean hingeFlagUp = false;
+	public static boolean hingeFlagUp = false;
 	public static /*I*/Hinge hingeControl;
 	
 	WPI_TalonSRX hinge; 
@@ -335,6 +336,7 @@ public class Robot extends TimedRobot {
     gyroReset = new GyroReset();
 
     drivetrainJoystickControl = new DrivetrainJoystickControl();
+    drivetrainSingleJoystickControl = new DrivetrainSingleJoystickControl();
     drivetrainMoveDistance = new DrivetrainMoveDistance(50);
     drivetrainTurnAngleUsingPidControllerPlus90 = new DrivetrainTurnAngleUsingPidController(90);
     drivetrainTurnAngleUsingPidControllerMinus90 = new DrivetrainTurnAngleUsingPidController(-90);
@@ -455,7 +457,7 @@ public class Robot extends TimedRobot {
 					drivetrainJoystickControl.start();
 				}
 			} else {
-				drivetrainJoystickControl.start(); // TODO fix because as this currently will internally assume two joysticks
+				drivetrainSingleJoystickControl.start();
 			}
 		}
 		else
