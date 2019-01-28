@@ -49,17 +49,31 @@ public class Robot extends TimedRobot {
   
   Command drivetrainJoystickControl;
   Command drivetrainSingleJoystickControl;
-  Command drivetrainMoveDistance;
-  Command drivetrainTurnAngleUsingPidControllerPlus90;
-  Command drivetrainTurnAngleUsingPidControllerMinus90;
+  Command drivetrainMoveDistance50inches;
+  Command drivetrainTurnAngleUsingPidControllerPlus90degrees;
+  Command drivetrainTurnAngleUsingPidControllerMinus90degrees;
   Command drivetrainStop;
   Command drivetrainResetEncoders;
 
   Command miniDrivetrainJoystickControl;
-  Command miniDrivetrainMoveDistance;
+  Command miniDrivetrainMoveDistance50inches;
   Command miniDrivetrainMoveUsingCameraPidController;
   Command miniDrivetrainStop;
   Command miniDrivetrainResetEncoders;
+
+  Command hingeJoystickControl;
+  Command hingeHome;
+  Command hingeMoveDown;
+  Command hingeModeMidway;
+  Command hingeMoveUp;
+  Command hingeStop;
+
+  Command elevatorJoystickControl;
+  Command elevatorHome;
+  Command elevatorMoveDown;
+  Command elevatorMoveMidway;
+  Command elevatorMoveUp;
+  Command elevatorStop;
   
   Command jackSetPositionLargeDrivetrain;
   Command jackSetPositionMiniDrivetrain;
@@ -337,18 +351,32 @@ public class Robot extends TimedRobot {
 
     drivetrainJoystickControl = new DrivetrainJoystickControl();
     drivetrainSingleJoystickControl = new DrivetrainSingleJoystickControl();
-    drivetrainMoveDistance = new DrivetrainMoveDistance(50);
-    drivetrainTurnAngleUsingPidControllerPlus90 = new DrivetrainTurnAngleUsingPidController(90);
-    drivetrainTurnAngleUsingPidControllerMinus90 = new DrivetrainTurnAngleUsingPidController(-90);
+    drivetrainMoveDistance50inches = new DrivetrainMoveDistance(50);
+    drivetrainTurnAngleUsingPidControllerPlus90degrees = new DrivetrainTurnAngleUsingPidController(90);
+    drivetrainTurnAngleUsingPidControllerMinus90degrees = new DrivetrainTurnAngleUsingPidController(-90);
     drivetrainStop = new DrivetrainStop();
     drivetrainResetEncoders = new DrivetrainResetEncoders();
     
     miniDrivetrainJoystickControl = new MiniDrivetrainJoystickControl();
-    miniDrivetrainMoveDistance = new MiniDrivetrainMoveDistance(50);
+    miniDrivetrainMoveDistance50inches = new MiniDrivetrainMoveDistance(50);
     miniDrivetrainMoveUsingCameraPidController = new MiniDrivetrainMoveUsingCameraPidController();
     miniDrivetrainStop = new MiniDrivetrainStop();
     miniDrivetrainResetEncoders = new MiniDrivetrainResetEncoders();
     
+    hingeJoystickControl = new HingeJoystickControl();
+    hingeHome = new HingeHome();
+    hingeMoveDown = new HingeMoveDown();
+    hingeModeMidway = new HingeMoveMidway();
+    hingeMoveUp = new HingeMoveUp();
+    hingeStop = new HingeStop();
+  
+    elevatorJoystickControl = new ElevatorJoystickControl();
+    elevatorHome = new ElevatorHome();
+    elevatorMoveDown = new ElevatorMoveDown();
+    elevatorMoveMidway = new ElevatorMoveMidway();
+    elevatorMoveUp = new ElevatorMoveUp();
+    elevatorStop = new ElevatorStop();
+  
     jackSetPositionMiniDrivetrain = new JackSetPosition(IJack.Position.MINI_DRIVETRAIN);
     jackSetPositionLargeDrivetrain = new JackSetPosition(IJack.Position.LARGE_DRIVETRAIN);
 
@@ -454,15 +482,15 @@ public class Robot extends TimedRobot {
 					&& !control.getHeld(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN10)
 					&& !control.getHeld(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN11)) {
 				
-					drivetrainJoystickControl.start();
+          drivetrainJoystickControl.start(); // TODO check if it is ok to start a command already started
 				}
 			} else {
-				drivetrainSingleJoystickControl.start();
+				drivetrainSingleJoystickControl.start(); // TODO check if it is ok to start a command already started
 			}
 		}
 		else
 		{
-			miniDrivetrainJoystickControl.start();
+			miniDrivetrainJoystickControl.start(); // TODO check if it is ok to start a command already started
 		}			
 		
 		// Jack up or down the robot to switch between main or mini drivetrain			
@@ -542,9 +570,9 @@ public class Robot extends TimedRobot {
 			System.out.println("Button LEFT.BTN3 Pushed");	
 			
 			if (largeDriveTrainSelected) {
-				drivetrainMoveDistance.start();
+				drivetrainMoveDistance50inches.start();
 			} else {
-				miniDrivetrainMoveDistance.start();
+				miniDrivetrainMoveDistance50inches.start();
 			}
 		}
 		else if (control.getPressedDown(ControllerBase.Joysticks.LEFT_STICK, ControllerBase.JoystickButtons.BTN4))
@@ -556,7 +584,7 @@ public class Robot extends TimedRobot {
 			}
 			
 			//drivetrain.moveDistanceAlongArc(-90);
-			drivetrainTurnAngleUsingPidControllerMinus90.start();
+			drivetrainTurnAngleUsingPidControllerMinus90degrees.start();
 		}
 		else if (control.getPressedDown(ControllerBase.Joysticks.LEFT_STICK, ControllerBase.JoystickButtons.BTN5))
 		{
@@ -567,7 +595,7 @@ public class Robot extends TimedRobot {
 			}
 			
 			//drivetrain.moveDistanceAlongArc(+90);
-			drivetrainTurnAngleUsingPidControllerPlus90.start();
+			drivetrainTurnAngleUsingPidControllerPlus90degrees.start();
 		}
 		
 		//Resets encoders (and gyro) "Reset"
@@ -592,28 +620,28 @@ public class Robot extends TimedRobot {
 				
 		if (control.getHeld(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN8))
 		{
-			//elevatorControl.joystickControl(joyLeft); TODO
+			elevatorJoystickControl.start(); // TODO check if it is ok to start a command already started
 		}
 		
 		if (control.getHeld(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN9))
 		{	
-			//hingeControl.joystickControl(joyLeft); TODO
+			hingeJoystickControl.start(); // TODO check if it is ok to start a command already started
 		}
 		
 		if (control.getHeld(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN10))
 		{
-			grasperJoystickControl.start();
+			grasperJoystickControl.start(); // TODO check if it is ok to start a command already started
 		}	
 		
 		// auto-stop if we release one of the buttons before releasing joystick
 		if (control.getReleased(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN8))
 		{
-			//elevatorControl.stop(); TODO
+			elevatorStop.start();
 		}
 		
 		if (control.getReleased(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN9))
 		{	
-			//hingeControl.stop(); TODO
+			hingeStop.start();
 		}
 		
 		if (control.getReleased(ControllerBase.Joysticks.LEFT_STICK,ControllerBase.JoystickButtons.BTN10))
