@@ -508,11 +508,11 @@ public class Robot extends TimedRobot {
 			System.out.println("jack down");
 			jackSetPositionMiniDrivetrain.start();
 			drivetrainStop.start();
-				}
+		}
 				
-				if (control.getPressedDown(ControllerBase.Joysticks.RIGHT_STICK,ControllerBase.JoystickButtons.BTN3))
-				{
-					System.out.println("Button RIGHT.BTN3 Pushed");
+		if (control.getPressedDown(ControllerBase.Joysticks.RIGHT_STICK,ControllerBase.JoystickButtons.BTN3))
+		{
+			System.out.println("Button RIGHT.BTN3 Pushed");
 					
 			largeDriveTrainSelected = true; 
 			System.out.println("jack up");
