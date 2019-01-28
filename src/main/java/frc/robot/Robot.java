@@ -64,7 +64,7 @@ public class Robot extends TimedRobot {
   Command hingeJoystickControl;
   Command hingeHome;
   Command hingeMoveDown;
-  Command hingeModeMidway;
+  Command hingeMoveMidway;
   Command hingeMoveUp;
   Command hingeStop;
 
@@ -366,7 +366,7 @@ public class Robot extends TimedRobot {
     hingeJoystickControl = new HingeJoystickControl();
     hingeHome = new HingeHome();
     hingeMoveDown = new HingeMoveDown();
-    hingeModeMidway = new HingeMoveMidway();
+    hingeMoveMidway = new HingeMoveMidway();
     hingeMoveUp = new HingeMoveUp();
     hingeStop = new HingeStop();
   
@@ -552,6 +552,7 @@ public class Robot extends TimedRobot {
 			USE_TWO_JOYSTICKS_TO_DRIVE = false;
 		}
  
+
 		// LEFT JOYSTICK // LEFT JOYSTICK // LEFT JOYSTICK // LEFT JOYSTICK // LEFT JOYSTICK
 						
 		// todo document new option
@@ -648,7 +649,175 @@ public class Robot extends TimedRobot {
 		{
 			grasperStop.start();
 		}
-	
+
+		
+		// GAMEPAD // GAMEPAD // GAMEPAD // GAMEPAD // GAMEPAD
+
+		//Home Elevator
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.BACK)) {
+			System.out.println("Button BACK Pushed");
+			
+			if (hingeControl != null && (!hingeControl.hasBeenHomed() || !hingeControl.isDown())) {
+				System.out.println("ERROR: cannot home elevator up when hinge has not been homed or is not down!");
+			} else {
+				elevatorHome.start();
+			}
+		}
+		
+		//Home Hinge
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.START)) { 
+			System.out.println("Button START Pushed");
+			
+			hingeHome.start();
+		}
+		
+		//elevator up and down using Left LS button
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.LS)) {
+			System.out.println("Button LS Pushed");
+			
+			if (hingeControl != null && (!hingeControl.hasBeenHomed() || !hingeControl.isDown())) {
+				System.out.println("ERROR: cannot move elevator up or down when hinge has not been homed or is not down!");
+			} else {
+				if (elevatorFlagUp) {
+					elevatorMoveUp.start();
+					System.out.println("Elevator should be moving up");
+					elevatorFlagUp = false;
+				} else {
+					elevatorMoveDown.start();
+					System.out.println("Elevator should be moving down");
+					elevatorFlagUp = true;
+				}
+			}
+		}
+		
+		//hinge up and down using Right RS button
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.RS)) {
+			System.out.println("Button RS Pushed");
+
+			if (hingeFlagUp) {
+				hingeMoveUp.start();
+				System.out.println("Hinge should be moving up");
+				hingeFlagUp = false;
+			} else {
+				hingeMoveDown.start();
+				System.out.println("Hinge should be moving down");
+				hingeFlagUp = true;
+			}
+		}
+		
+		//Use Left bumper to move elevator midway (switch)
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.LB)) { 
+			System.out.println("Button LB Pushed");
+			
+			if (hingeControl != null && (!hingeControl.hasBeenHomed() || !hingeControl.isDown())) {
+				System.out.println("ERROR: cannot move elevator midway when hinge has not been homed or is not down!");
+			} else {
+				elevatorMoveMidway.start();
+				System.out.println("Elevator should be moving midway");
+				elevatorFlagUp = false;
+			}
+		}
+		
+		//Use Right bumper to move hinge midway (throw)
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.RB)) { 
+			System.out.println("Button RB Pushed");
+			
+			hingeMoveMidway.start();
+			System.out.println("Hinge should be moving midway");
+			hingeFlagUp = false;
+		}
+
+		//abort bound to X
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.X)) {
+			System.out.println("Button X Pushed");
+			
+			//drivetrain.stop();
+			//miniDrivetrain.stop();
+			
+			hingeStop.start();
+			elevatorStop.start();
+			grasperStop.start();
+		}
+		
+		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.A)) { 
+			System.out.println("Button A Pushed");
+			
+			if (hingeControl != null && (!hingeControl.hasBeenHomed() || !hingeControl.isDown())) {
+				System.out.println("WARNING: grasping when hinge has not been homed or is not down!");
+			}
+			
+			if (elevatorControl != null && (!elevatorControl.hasBeenHomed() || !elevatorControl.isDown())) {
+				System.out.println("WARNING: grasping when elevator has not been homed or is not down!");
+			}
+			
+			grasperGrasp.start();
+		}
+		else if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.B)) {
+			System.out.println("Button B Pushed");
+			
+			if (hingeControl != null && (!hingeControl.hasBeenHomed() || hingeControl.isUp())) {
+				System.out.println("WARNING: releasing when hinge has not been homed or is up!");
+			}
+			
+			if (elevatorControl != null && (!elevatorControl.hasBeenHomed() || elevatorControl.isDown())) {
+				System.out.println("WARNING: releasing when elevator has not been homed or is down!");
+			}
+			
+			grasperRelease.start();
+		}
+		else 
+		{
+			//grasper.stop();	// for manual mode, remove if auto stop is desired	
+		}
+		
+		// experimental code to see if we can detect gamepad axes virtually pressed as buttons
+		if (control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.LX, true) ||
+				control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.LY, true) || 
+				control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.LX, false) ||
+				control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.LY, false)) {
+			
+			System.out.println("Gamepad axis L Pushed");
+			
+			if (hingeControl != null && (!hingeControl.hasBeenHomed() || !hingeControl.isDown())) {
+				System.out.println("ERROR: cannot move elevator up or down when hinge has not been homed or is not down!");
+			} else {
+					elevatorMoveUp.start();
+					System.out.println("Elevator should be moving up");
+					elevatorFlagUp = false;
+			}
+		}
+		
+		if (control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.LT, true)) {
+			System.out.println("Gamepad axis LT Pushed positively");
+			
+			if (hingeControl != null && (!hingeControl.hasBeenHomed() || !hingeControl.isDown())) {
+				System.out.println("ERROR: cannot move elevator up or down when hinge has not been homed or is not down!");
+			} else {
+					elevatorMoveDown.start();
+					System.out.println("Elevator should be moving down");
+					elevatorFlagUp = true;
+			}
+		}
+		
+		if (control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.RT, true)) {
+			System.out.println("Gamepad axis RT Pushed positively");
+			
+				hingeMoveDown.start();
+				System.out.println("Hinge should be moving down");
+				hingeFlagUp = true;
+		}
+		
+		if (control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.RX, true) ||
+				control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.RY, true) ||
+				control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.RX, false) ||
+				control.getGamepadAxisPressedDown(ControllerBase.GamepadAxes.RY, false)) {
+			
+			System.out.println("Gamepad axis R Pushed");
+			
+				hingeMoveUp.start();
+				System.out.println("Hinge should be moving up");
+				hingeFlagUp = false;
+		}
 
 
     Scheduler.getInstance().run();
