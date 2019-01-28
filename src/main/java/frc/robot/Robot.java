@@ -528,7 +528,7 @@ public class Robot extends TimedRobot {
 			drivetrainResetEncoders.start();
 			miniDrivetrainResetEncoders.start();;
 			
-			//gyro.reset(); // resets to zero - we don't want to rirsk loosing time during competition
+			//gyroReset.start(); // resets to zero - we don't want to rirsk loosing time during competition
 		}		
 		
 		//Stops the robot moving if pressed (or any closed loop operation) "Abort"
@@ -743,8 +743,8 @@ public class Robot extends TimedRobot {
 		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.X)) {
 			System.out.println("Button X Pushed");
 			
-			//drivetrain.stop();
-			//miniDrivetrain.stop();
+			//drivetrainStop.start();
+			//miniDrivetrainStop.start();
 			
 			hingeStop.start();
 			elevatorStop.start();
@@ -779,7 +779,7 @@ public class Robot extends TimedRobot {
 		}
 		else 
 		{
-			//grasper.stop();	// for manual mode, remove if auto stop is desired	
+			//grasperStop.start();	// for manual mode, remove if auto stop is desired	
 		}
 		
 		// experimental code to see if we can detect gamepad axes virtually pressed as buttons
