@@ -440,7 +440,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
-  	}
+  }
 
 	/**
 	 * This function is called periodically during autonomous.
@@ -473,7 +473,8 @@ public class Robot extends TimedRobot {
 		
 		Scheduler.getInstance().run(); // forces execution of next scheduled command (from prior iteration)
     
-   		//RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK
+
+   	//RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK
 		
 		//Joystick drive only using right joystick
 		if (largeDriveTrainSelected) {
@@ -833,12 +834,12 @@ public class Robot extends TimedRobot {
 			hingeFlagUp = false;
 		}
 
-
-    	Scheduler.getInstance().run(); // schedule command(s) that were added in this iteration
+    
+    Scheduler.getInstance().run(); // schedule command(s) that were added in this iteration
 
 		camera.acquireTargets(false);
 		updateToSmartDash(); 	
-  	}
+  }
 
 	/**
 	 * This function is called periodically during test mode.
@@ -865,15 +866,15 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run(); // forces execution of next scheduled command (from prior iteration)
 
 		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.A)) {
-      		gyroCalibrateAndReset.start();
+      gyroCalibrateAndReset.start();
 			hasGyroBeenManuallyCalibratedAtLeastOnce = true; // we flag that this was done
 		}
 
-	    Scheduler.getInstance().run(); // schedule command(s) that were added in this iteration
+	  Scheduler.getInstance().run(); // schedule command(s) that were added in this iteration
 
-    	camera.acquireTargets(false);
+    camera.acquireTargets(false);
 		updateToSmartDash();    
-  	}
+  }
 
 	public void updateToSmartDash()
 	{
