@@ -55,7 +55,7 @@ public class ElevatorMoveUp extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.elevatorControl.stop();
+        Robot.elevatorControl.stay(); // we don't want to stop so we stay up...
     }
 
     // Called when another command which requires one or more of the same

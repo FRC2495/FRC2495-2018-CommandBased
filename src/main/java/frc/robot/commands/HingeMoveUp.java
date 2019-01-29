@@ -55,7 +55,7 @@ public class HingeMoveUp extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.hingeControl.stop();
+        Robot.hingeControl.stay();  // we don't want to stop so we stay up...
     }
 
     // Called when another command which requires one or more of the same
