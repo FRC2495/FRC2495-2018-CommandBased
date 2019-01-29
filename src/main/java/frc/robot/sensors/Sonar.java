@@ -1,5 +1,7 @@
 package frc.robot.sensors;
+
 import edu.wpi.first.wpilibj.*;
+import frc.robot.Robot;
 
 
 public class Sonar{
@@ -19,17 +21,17 @@ public class Sonar{
         //default values
 		use_units = true;
 		
-		//if (Robot.COMPETITION_BOT_CONFIG) {
+		if (Robot.COMPETITION_BOT_CONFIG) {
 			min_voltage = .25;
 			voltage_range = 5.0 - min_voltage;
 			min_distance = 10.0; //accurate anywhere over 10in - maxdistance 
 			distance_range = 360 - min_distance;
-		/*} else { // practice bot
+		} else { // practice bot
 			min_voltage = .10; // TODO CALIBRATE THIS VALUE
 			voltage_range = 5.0 - min_voltage;
 			min_distance = 10.0; // TODO CALIBRATE THIS VALUE 
 			distance_range = 360 - min_distance;
-		}*/
+		}
     }
     
     //constructor
