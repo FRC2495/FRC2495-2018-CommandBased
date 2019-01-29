@@ -6,7 +6,9 @@ import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+
 import frc.robot.interfaces.*;
+
 
 public class HMCamera implements PIDSource, IHMCamera {
 	private static final int BAD_INDEX = -1;
