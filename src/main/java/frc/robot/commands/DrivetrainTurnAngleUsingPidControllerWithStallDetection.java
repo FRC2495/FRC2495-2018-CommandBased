@@ -37,6 +37,7 @@ public class DrivetrainTurnAngleUsingPidControllerWithStallDetection extends Com
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("DrivetrainTurnAngleUsingPidControllerWithStallDetection: initialize");
         Robot.drivetrain.turnAngleUsingPidController(m_angle);
     }
 
@@ -55,6 +56,7 @@ public class DrivetrainTurnAngleUsingPidControllerWithStallDetection extends Com
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("DrivetrainTurnAngleUsingPidControllerWithStallDetection: end");
         Robot.drivetrain.stop();
     }
 
@@ -62,6 +64,7 @@ public class DrivetrainTurnAngleUsingPidControllerWithStallDetection extends Com
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("DrivetrainTurnAngleUsingPidControllerWithStallDetection: interrupted");
         end();
     }
 }

@@ -37,6 +37,7 @@ public class HingeHome extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("HingeHome: initialize");
         Robot.hingeControl.home();
     }
 
@@ -55,6 +56,7 @@ public class HingeHome extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("HingeHome: end");
         Robot.hingeControl.stop();
     }
 
@@ -62,6 +64,7 @@ public class HingeHome extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("HingeHome: interrupted");
         end();
     }
 }

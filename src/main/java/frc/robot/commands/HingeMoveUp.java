@@ -37,6 +37,7 @@ public class HingeMoveUp extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("HingeMoveUp: initialize");
         Robot.hingeControl.moveUp();
     }
 
@@ -55,6 +56,7 @@ public class HingeMoveUp extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("HingeMoveUp: end");
         Robot.hingeControl.stay();  // we don't want to stop so we stay up...
     }
 
@@ -62,6 +64,7 @@ public class HingeMoveUp extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("HingeMoveUp: interrupted");
         end();
     }
 }

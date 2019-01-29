@@ -37,6 +37,7 @@ public class MiniDrivetrainMoveUsingCameraPidController extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("MiniDrivetrainMoveUsingCameraPidController: initialize");
         Robot.miniDrivetrain.moveUsingCameraPidController();
     }
 
@@ -55,6 +56,7 @@ public class MiniDrivetrainMoveUsingCameraPidController extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("MiniDrivetrainMoveUsingCameraPidController: end");
         Robot.miniDrivetrain.stop();
     }
 
@@ -62,6 +64,7 @@ public class MiniDrivetrainMoveUsingCameraPidController extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("MiniDrivetrainMoveUsingCameraPidController: interrupted");
         end();
     }
 }

@@ -37,6 +37,7 @@ public class ElevatorHome extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("ElevatorHome: initialize");
         Robot.elevatorControl.home();
     }
 
@@ -55,6 +56,7 @@ public class ElevatorHome extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("ElevatorHome: end");
         Robot.elevatorControl.stop();
     }
 
@@ -62,6 +64,7 @@ public class ElevatorHome extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("ElevatorHome: interrupted");
         end();
     }
 }

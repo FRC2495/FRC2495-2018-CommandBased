@@ -37,6 +37,7 @@ public class GrasperGrasp extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("GrasperGrasp: initialize");
         Robot.grasper.grasp();
     }
 
@@ -55,6 +56,7 @@ public class GrasperGrasp extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("GrasperGrasp: end");
         Robot.grasper.stop();
     }
 
@@ -62,6 +64,7 @@ public class GrasperGrasp extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("GrasperGrasp: interrupted");
         end();
     }
 }

@@ -37,6 +37,7 @@ public class ElevatorMoveDown extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("ElevatorMoveDown: initialize");
         Robot.elevatorControl.moveDown();
     }
 
@@ -55,6 +56,7 @@ public class ElevatorMoveDown extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("ElevatorMoveDown: end");
         Robot.elevatorControl.stop();
     }
 
@@ -62,6 +64,7 @@ public class ElevatorMoveDown extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("ElevatorMoveDown: interrupted");
         end();
     }
 }

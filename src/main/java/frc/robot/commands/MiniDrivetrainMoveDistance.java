@@ -38,6 +38,7 @@ public class MiniDrivetrainMoveDistance extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("MiniDrivetrainMoveDistance: initialize");
         Robot.miniDrivetrain.moveDistance(m_distance);
     }
 
@@ -56,6 +57,7 @@ public class MiniDrivetrainMoveDistance extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("MiniDrivetrainMoveDistance: end");
         Robot.miniDrivetrain.stop();
     }
 
@@ -63,6 +65,7 @@ public class MiniDrivetrainMoveDistance extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("MiniDrivetrainMoveDistance: interrupted");
         end();
     }
 }

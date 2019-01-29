@@ -38,6 +38,7 @@ public class DrivetrainMoveDistanceWithStallDetection extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("DrivetrainMoveDistanceWithStallDetection: initialize");
         Robot.drivetrain.moveDistance(m_distance);
     }
 
@@ -56,6 +57,7 @@ public class DrivetrainMoveDistanceWithStallDetection extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("DrivetrainMoveDistanceWithStallDetection: end");
         Robot.drivetrain.stop();
     }
 
@@ -63,6 +65,7 @@ public class DrivetrainMoveDistanceWithStallDetection extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("DrivetrainMoveDistanceWithStallDetection: interrupted");
         end();
     }
 }

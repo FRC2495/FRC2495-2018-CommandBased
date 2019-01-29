@@ -37,6 +37,7 @@ public class DrivetrainTurnAngleUsingPidController extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("DrivetrainTurnAngleUsingPidController: initialize");
         Robot.drivetrain.turnAngleUsingPidController(m_angle);
     }
 
@@ -55,6 +56,7 @@ public class DrivetrainTurnAngleUsingPidController extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("DrivetrainTurnAngleUsingPidController: end");
         Robot.drivetrain.stop();
     }
 
@@ -62,6 +64,7 @@ public class DrivetrainTurnAngleUsingPidController extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("DrivetrainTurnAngleUsingPidController: interrupted");
         end();
     }
 }
