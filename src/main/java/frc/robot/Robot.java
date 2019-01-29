@@ -469,7 +469,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		control.update();
-    	camera.acquireTargets(false);
+		camera.acquireTargets(false);
+		
+		Scheduler.getInstance().run(); // forces execution of next scheduled command (from prior iteration)
     
    		//RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK //RIGHT JOYSTICK
 		
@@ -832,7 +834,7 @@ public class Robot extends TimedRobot {
 		}
 
 
-    	Scheduler.getInstance().run();
+    	Scheduler.getInstance().run(); // schedule command(s) that were added in this iteration
 
 		camera.acquireTargets(false);
 		updateToSmartDash(); 	
@@ -860,12 +862,14 @@ public class Robot extends TimedRobot {
 		control.update();
 		camera.acquireTargets(false);
 
+		Scheduler.getInstance().run(); // forces execution of next scheduled command (from prior iteration)
+
 		if (control.getPressedDown(ControllerBase.Joysticks.GAMEPAD, ControllerBase.GamepadButtons.A)) {
       		gyroCalibrateAndReset.start();
 			hasGyroBeenManuallyCalibratedAtLeastOnce = true; // we flag that this was done
 		}
 
-	    Scheduler.getInstance().run();
+	    Scheduler.getInstance().run(); // schedule command(s) that were added in this iteration
 
     	camera.acquireTargets(false);
 		updateToSmartDash();    
