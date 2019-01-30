@@ -24,7 +24,7 @@ public class GamepadAxis extends Button {
    *
    * @param joystick     The GenericHID object that has the axis (e.g. Joystick, KinectStick,
    *                     etc)
-   * @param axisNumber The axis number (see {@link GenericHID#getRawButton(int) }
+   * @param axisNumber The axis number (see {@link GenericHID#getRawAxis(int) }
    * 
    * @param polarity The polarity of the axis (to specify which direction is considered the positive direction)
    * 
