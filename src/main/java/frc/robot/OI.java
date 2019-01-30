@@ -76,6 +76,7 @@ public class OI {
     public JoystickButton gamepadA;
     public JoystickButton gamepadB;
     public JoystickButton gamepadX;
+    //public JoystickButton gamepadY;
     public JoystickButton gamepadLB;
     public JoystickButton gamepadRB;
     public JoystickButton gamepadBack;
@@ -148,6 +149,9 @@ public class OI {
 
         gamepadLB = new JoystickButton(gamepad, ControllerBase.GamepadButtons.LB);
         gamepadLB.whenPressed(new ElevatorMoveMidway());
+
+        //gamepadY = new JoystickButton(gamepad, ControllerBase.GamepadButtons.Y);
+        //gamepadY.whenPressed(new GyroCalibrate()); // TODO reassign to less accessible button
 
         gamepadX = new JoystickButton(gamepad, ControllerBase.GamepadButtons.X);
         gamepadX.whenPressed(new HingeElevatorAndGrasperStop());
