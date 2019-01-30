@@ -1,0 +1,162 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Sonar options" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="339" y="189"/>
+	</widget>
+	<widget field="Auto choices" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="339" y="168"/>
+	</widget>
+	<widget field="Start positions" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="339" y="147"/>
+	</widget>
+	<widget field="Camera options" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="185" y="420"/>
+	</widget>
+	<widget field="Winch IsWinchingUp?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="339" y="126"/>
+	</widget>
+	<widget field="Elevator Enc Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="339" y="105"/>
+	</widget>
+	<widget field="Elevator isDown" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="399"/>
+	</widget>
+	<widget field="Distance to Target Using Horizontal FOV" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="339" y="84"/>
+	</widget>
+	<widget field="Elevator isUp" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="378"/>
+	</widget>
+	<widget field="Gyro Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="357"/>
+	</widget>
+	<widget field="Hinge IsMoving?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="336"/>
+	</widget>
+	<widget field="Angle to Target" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="315"/>
+	</widget>
+	<widget field="Right Enc Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="294"/>
+	</widget>
+	<widget field="Elevator IsMoving?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="273"/>
+	</widget>
+	<widget field="Grasper IsReleasing?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="352" y="63"/>
+	</widget>
+	<widget field="Elevator Target" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="252"/>
+	</widget>
+	<widget field="Mini Right Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="231"/>
+	</widget>
+	<widget field="Elevator Has Been Homed?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="369" y="42"/>
+	</widget>
+	<widget field="Second Switch" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="210"/>
+	</widget>
+	<widget field="Gyro Manually Calibrated?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="351" y="21"/>
+	</widget>
+	<widget field="isMoving?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="189"/>
+	</widget>
+	<widget field="Left Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="168"/>
+	</widget>
+	<widget field="isTurning?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="147"/>
+	</widget>
+	<widget field="Hinge isDown" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="126"/>
+	</widget>
+	<widget field="Mini isMoving?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="105"/>
+	</widget>
+	<widget field="Right Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="84"/>
+	</widget>
+	<widget field="Elevator Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="63"/>
+	</widget>
+	<widget field="Hinge Has Been Homed?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="339" y="0"/>
+	</widget>
+	<widget field="Grasper IsGrasping?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="42"/>
+	</widget>
+	<widget field="Hinge IsHoming?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="21"/>
+	</widget>
+	<widget field="Hinge Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="185" y="0"/>
+	</widget>
+	<widget field="Elevator IsHoming?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="420"/>
+	</widget>
+	<widget field="Mini Right Enc Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="399"/>
+	</widget>
+	<widget field="isCompromised?" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="378"/>
+	</widget>
+	<widget field="Hinge Limit Switch" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="357"/>
+	</widget>
+	<widget field="First Switch" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="336"/>
+	</widget>
+	<widget field="Check pressure " type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="315"/>
+	</widget>
+	<widget field="Hinge Enc Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="294"/>
+	</widget>
+	<widget field="Hinge Target" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="273"/>
+	</widget>
+	<widget field="Mini Left Enc Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="252"/>
+	</widget>
+	<widget field="Compressor relay " type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="231"/>
+	</widget>
+	<widget field="Elevator isMidway" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="210"/>
+	</widget>
+	<widget field="Scale" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="189"/>
+	</widget>
+	<widget field="Left Enc Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="168"/>
+	</widget>
+	<widget field="Tilt" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="147"/>
+	</widget>
+	<widget field="Sonar Voltage" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="126"/>
+	</widget>
+	<widget field="Distance to Target" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="105"/>
+	</widget>
+	<widget field="Hinge isMidway" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="84"/>
+	</widget>
+	<widget field="Hinge isUp" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="63"/>
+	</widget>
+	<widget field="Range to target" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="42"/>
+	</widget>
+	<widget field="Mini Left Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="21"/>
+	</widget>
+	<widget field="Elevator Limit Switch" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
