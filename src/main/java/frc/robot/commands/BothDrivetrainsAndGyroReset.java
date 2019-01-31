@@ -18,28 +18,28 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class BothDrivetrainsAndGyroReset extends CommandGroup {
 
-    public BothDrivetrainsAndGyroReset() {
-        setRunWhenDisabled(true); // allows running of command when robot is disabled
+	public BothDrivetrainsAndGyroReset() {
+		setRunWhenDisabled(true); // allows running of command when robot is disabled
 
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        // addSequential(new Command2());
-        // these will run in order.
+		// Add Commands here:
+		// e.g. addSequential(new Command1());
+		// addSequential(new Command2());
+		// these will run in order.
 
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        // addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
+		// To run multiple commands at the same time,
+		// use addParallel()
+		// e.g. addParallel(new Command1());
+		// addSequential(new Command2());
+		// Command1 and Command2 will run in parallel.
 
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
+		// A command group will require all of the subsystems that each member
+		// would require.
+		// e.g. if Command1 requires chassis, and Command2 requires arm,
+		// a CommandGroup containing them would require both the chassis and the
+		// arm.
 
-        addSequential(new DrivetrainResetEncoders());
-        addSequential(new MiniDrivetrainResetEncoders());
-        addSequential(new GyroReset());
-    }
+		addSequential(new DrivetrainResetEncoders());
+		addSequential(new MiniDrivetrainResetEncoders());
+		addSequential(new GyroReset());
+	}
 }

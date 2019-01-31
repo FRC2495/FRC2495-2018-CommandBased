@@ -18,16 +18,16 @@ import frc.robot.Robot;
  */
 public class DrivetrainResetEncoders extends InstantCommand {
 
-    public DrivetrainResetEncoders() {
-        setRunWhenDisabled(true); // allows running of command when robot is disabled
+	public DrivetrainResetEncoders() {
+		setRunWhenDisabled(true); // allows running of command when robot is disabled
 
-        requires(Robot.drivetrain);
-    }
+		requires(Robot.drivetrain);
+	}
 
-    // Called once when this command runs
-    @Override
-    protected void initialize() {
-        Robot.drivetrain.resetEncoders();
-    }
+	// Called once when this command runs
+	@Override
+	protected void initialize() {
+		Robot.drivetrain.resetEncoders();
+	}
 
 }

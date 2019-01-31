@@ -18,29 +18,29 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class GyroCalibrateAndReset extends CommandGroup {
 
-    public GyroCalibrateAndReset() {
-        setRunWhenDisabled(true); // allows running of command when robot is disabled
+	public GyroCalibrateAndReset() {
+		setRunWhenDisabled(true); // allows running of command when robot is disabled
 
-        // gyro only supports instant commands, so no need to reserve it
+		// gyro only supports instant commands, so no need to reserve it
 
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        // addSequential(new Command2());
-        // these will run in order.
+		// Add Commands here:
+		// e.g. addSequential(new Command1());
+		// addSequential(new Command2());
+		// these will run in order.
 
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        // addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
+		// To run multiple commands at the same time,
+		// use addParallel()
+		// e.g. addParallel(new Command1());
+		// addSequential(new Command2());
+		// Command1 and Command2 will run in parallel.
 
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
+		// A command group will require all of the subsystems that each member
+		// would require.
+		// e.g. if Command1 requires chassis, and Command2 requires arm,
+		// a CommandGroup containing them would require both the chassis and the
+		// arm.
 
-        addSequential(new GyroCalibrate());
-        addSequential(new GyroReset());
-    }
+		addSequential(new GyroCalibrate());
+		addSequential(new GyroReset());
+	}
 }

@@ -18,16 +18,16 @@ import frc.robot.Robot;
  */
 public class MiniDrivetrainResetEncoders extends InstantCommand {
 
-    public MiniDrivetrainResetEncoders() {
-        setRunWhenDisabled(true); // allows running of command when robot is disabled
+	public MiniDrivetrainResetEncoders() {
+		setRunWhenDisabled(true); // allows running of command when robot is disabled
 
-        requires(Robot.miniDrivetrain);
-    }
+		requires(Robot.miniDrivetrain);
+	}
 
-    // Called once when this command runs
-    @Override
-    protected void initialize() {
-        Robot.miniDrivetrain.resetEncoders();
-    }
+	// Called once when this command runs
+	@Override
+	protected void initialize() {
+		Robot.miniDrivetrain.resetEncoders();
+	}
 
 }
