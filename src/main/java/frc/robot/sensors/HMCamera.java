@@ -10,7 +10,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.interfaces.*;
 
 
-public class HMCamera implements PIDSource, IHMCamera {
+public class HMCamera implements PIDSource, ICamera {
 	private static final int BAD_INDEX = -1;
 	
 	NetworkTable nt;

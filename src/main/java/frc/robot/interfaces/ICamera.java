@@ -2,7 +2,7 @@ package frc.robot.interfaces;
 
 import edu.wpi.first.wpilibj.PIDSourceType;
 
-public interface IHMCamera {
+public interface ICamera {
 
 	public boolean isCoherent();
 
