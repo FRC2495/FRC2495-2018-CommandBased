@@ -1,8 +1,9 @@
 package frc.robot.interfaces;
 
+import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 
-public interface ICamera {
+public interface ICamera extends PIDSource {
 
 	public boolean isCoherent();
 
