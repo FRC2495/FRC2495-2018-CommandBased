@@ -594,11 +594,13 @@ public class Drivetrain extends Subsystem implements PIDOutput, IDrivetrain {
 	@Override
 	public void pidWrite(double output) {
 		
-		if(Math.abs(turnPidController.getError()) < DEGREE_THRESHOLD)
+		// calling disable() on controller will force a call to pidWrite with zero output
+		// which we need to handle by not doing anything that could have a side effect 
+		if (output != 0 &&  Math.abs(turnPidController.getError()) < DEGREE_THRESHOLD)
 		{
 			output = 0;
 		}
-		if(output != 0 && Math.abs(output) < MIN_TURN_PCT_OUTPUT)
+		if (output != 0 && Math.abs(output) < MIN_TURN_PCT_OUTPUT)
 		{
 			output = Math.signum(output) * MIN_TURN_PCT_OUTPUT;
 		}
