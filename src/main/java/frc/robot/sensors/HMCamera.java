@@ -181,6 +181,8 @@ public class HMCamera implements PIDSource, ICamera {
 		return PIDSourceType.kDisplacement;
 	}
 	
+	// The PIDController that will call this method runs in a different thread than the scheduler thread,
+	// so it is important that this class be made thread-safe. This is why all the public methods are synchronized.
 	public synchronized double pidGet()
 	{
 		acquireTargets(false); // we don't want to wait but the lag might be problematic
